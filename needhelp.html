@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Menu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        background-image: url(assests/sm.jpeg);
+      }
+      /* General styles for the cart container */
+      #cart-items {
+        background-color: #f8f9fa; /* Light background for contrast */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        font-family: "Arial", sans-serif;
+        max-width: 400px;
+        margin: 20px auto; /* Center align */
+      }
+
+      .cart-item {
+        background-color: #fde2e2; /* White background for each item */
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
+
+      .cart-item:hover {
+        transform: scale(1.02); /* Slight zoom-in effect on hover */
+      }
+
+      .cart-item h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      .cart-item p {
+        font-size: 16px;
+        color: #555;
+        margin: 4px 0;
+      }
+
+      button {
+        background-color: #fa0808; /* Eye-catching red button */
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #fc4353; /* Darker red on hover */
+      }
+    </style>
+  </head>
+  <body style="background-image: url(assests/sm.jpeg); background-size: 125%">
+    <div class="menu-container">
+      <!-- Special Category -->
+      <div class="category">
+        <h2>Special</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/sp.png" alt="Starter 1" />
+            <div class="item-details">
+              <p>Chicken Biriyani</p>
+              <p>Price: ₹200</p>
+              <p>Protein: 20g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('1', 'Chicken Biriyani', 200)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/sp2.png" alt="Starter 2" />
+            <div class="item-details">
+              <p>Chicken Tandoori</p>
+              <p>Price: ₹150</p>
+              <p>Protein: 25g</p>
+              <p>Fat: 12g</p>
+              <p>Calories: 180</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('2', 'Chicken Tandoori', 150)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/sp3.png" alt="Starter 3" />
+            <div class="item-details">
+              <p>Kunafa</p>
+              <p>Price: ₹70</p>
+              <p>Protein: 7g</p>
+              <p>Fat: 18g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('3', 'Kunafa', 70)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Category -->
+      <div class="category">
+        <h2>Popular</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/p1.png" alt="Drink 1" />
+            <div class="item-details">
+              <p>Paneer Nest</p>
+              <p>Price: ₹90</p>
+              <p>Protein: 20g</p>
+              <p>Fat: 20g</p>
+              <p>Calories: 230</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('4', 'Paneer Nest', 90)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/p2.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>Chicken Wings</p>
+              <p>Price: ₹120</p>
+              <p>Protein: 20g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 180</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('5', 'Chicken Wings', 120)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/p3.png" alt="Drink 3" />
+            <div class="item-details">
+              <p>Spaghetti</p>
+              <p>Price: ₹120</p>
+              <p>Protein: 15g</p>
+              <p>Fat: 8g</p>
+              <p>Calories: 220</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('6', 'Spaghetti', 120)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- South Dish Category -->
+      <div class="category">
+        <h2>Desert</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/b1.png" alt="South Dish 1" />
+            <div class="item-details">
+              <p>Chocolate Cake</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 14g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('71', 'Chocolate Cake', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/b2.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Cheesecake</p>
+              <p>Price: ₹70</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 22g</p>
+              <p>Calories: 400</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('8', 'Cheesecake', 60)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/b3.png" alt="South Dish 3" />
+            <div class="item-details">
+              <p>Apple pie</p>
+              <p>Price: ₹90</p>
+              <p>Protein: 1g</p>
+              <p>Fat: 15g</p>
+              <p>Calories: 350</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('9', 'Apple pie', 40)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="order-btn" onclick="viewOrder()">Order</button>
+    <button class="back-btn" onclick="showMenuOptions()">Back</button>
+
+    <div id="rotate-alert">
+      <div id="rotate-alert-content">
+        <img src="assets/rotate.png" alt="Rotate Icon" />
+        <p>Please rotate your mobile</p>
+      </div>
+    </div>
+    <div id="cart-items"></div>
+    <script>
+      function showMenuOptions() {
+        document.body.style.backgroundImage = "url(assests/bg2.jpeg)"; // Set background image
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.margin = "0";
+        document.body.style.height = "100vh";
+        const menuOptions = `
+                                      <div style="text-align: center; padding-top: 20%;">
+                <div>
+                    <button
+                        id="needHelpButton"
+                        style="width: 15%; background-color: black; position: fixed; left: 150px; padding: 10px; font-size: 20px; border-radius: 20px; color: white; border: none; cursor: pointer;letter-spacing: 1px;"
+                        onclick="handleNeedHelpTouch()"
+                    >
+                        Confused!S
+                    </button>
+                    <p id="helpMessage" style="font-size: 18px; color: white;position: fixed; left: 45px; bottom: 250px;  margin-top: 10px;"></p>
+                </div>
+                <div>
+                    <button
+                       style="width: 15%; background-color: black; position: fixed; bottom: 220px;left: 150px;  padding: 10px; font-size: 20px; border-radius: 20px; color: white; border: none; cursor: pointer;"
+                        onclick="handleTouch()"
+                    >
+                        Choose Menu
+                    </button>
+                </div>
+            </div>   
+        `;
+        document.body.innerHTML = menuOptions;
+      }
+
+      let helpTouchCount = 0;
+
+      // Handle the 'Confused' button click
+      function handleNeedHelpTouch() {
+        const helpMessage = document.getElementById("helpMessage");
+        if (helpTouchCount === 0) {
+          helpMessage.textContent =
+            "If you are  feeling difficulty in choosing the menu, I can help you!";
+          helpTouchCount++;
+        } else {
+          location.href = "needhelp.html";
+        }
+      }
+
+      // Handle the 'Choose Menu' button click
+      function handleTouch() {
+        const helpMessage = document.getElementById("helpMessage");
+        if (helpTouchCount === 1) {
+          helpMessage.textContent =
+            "Are you ready to taste our delicious food...!!";
+          helpTouchCount++;
+        } else {
+          location.href = "menu.html";
+        }
+      }
+      // Initialize an empty cart
+      let cart = [];
+
+      // Function to add items to the cart
+      function addToCart(id, item_name, price) {
+        // Check if item already exists in cart, if so, increase quantity
+        const existingItem = cart.find((item) => item.id === id);
+        if (existingItem) {
+          existingItem.quantity += 1; // Increase quantity
+        } else {
+          cart.push({ id, item_name, price, quantity: 1 }); // Add new item to cart
+        }
+
+        // Update the cart display
+        displayCartItems();
+      }
+
+      // Function to display cart items
+      function displayCartItems() {
+        const cartItemsContainer = document.getElementById("cart-items");
+        cartItemsContainer.innerHTML = ""; // Clear the container
+
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = "<p>Your cart is empty</p>";
+          return;
+        }
+
+        // Display each item in the cart
+        cart.forEach((item) => {
+          const itemElement = document.createElement("div");
+          itemElement.classList.add("cart-item");
+          itemElement.innerHTML = `
+            <h3>${item.item_name}</h3>
+            <p>Price: ₹${item.price}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <button onclick="removeFromCart('${item.id}')">Remove</button>
+          `;
+          cartItemsContainer.appendChild(itemElement);
+        });
+      }
+
+      // Function to remove item from the cart
+      function removeFromCart(id) {
+        cart = cart.filter((item) => item.id !== id);
+        displayCartItems(); // Update the display after removal
+      }
+
+      // Function to view the order
+      function viewOrder() {
+        if (cart.length === 0) {
+          alert("No items in the cart!");
+          return;
+        }
+        let orderDetails = "Your Order:\n";
+        let totalPrice = 0;
+        cart.forEach((order, index) => {
+          orderDetails += `${index + 1}. ${order.item_name} - ₹${
+            order.price
+          }\n`;
+          totalPrice += order.price * order.quantity;
+        });
+        orderDetails += `\nTotal Price: ₹${totalPrice}`;
+        alert(orderDetails);
+      }
+    </script>
+  </body>
+</html>

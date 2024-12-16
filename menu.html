@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Menu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        background-image: url(assests/sm.jpeg);
+      }
+      /* General styles for the cart container */
+      #cart-items {
+        background-color: #f8f9fa; /* Light background for contrast */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        font-family: "Arial", sans-serif;
+        max-width: 400px;
+        margin: 20px auto; /* Center align */
+      }
+
+      .cart-item {
+        background-color: #fde2e2; /* White background for each item */
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
+
+      .cart-item:hover {
+        transform: scale(1.02); /* Slight zoom-in effect on hover */
+      }
+
+      .cart-item h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      .cart-item p {
+        font-size: 16px;
+        color: #555;
+        margin: 4px 0;
+      }
+
+      button {
+        background-color: #fa0808; /* Eye-catching red button */
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #fc4353; /* Darker red on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu-container">
+      <!-- Starter Category -->
+      <div class="category">
+        <h2>Starters</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/s1.jpeg" alt="Starter 1" />
+            <div class="item-details">
+              <p>Panner Tikka</p>
+              <p>Price: ₹100</p>
+              <p>Protein: 20g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('1', 'Panner Tikka', 100)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/s2.jpeg" alt="Starter 2" />
+            <div class="item-details">
+              <p>Chilly Baby Corn</p>
+              <p>Price: ₹150</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 12g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('2', 'Chilly Baby Corn', 150)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/s4.png" alt="Starter 2" />
+            <div class="item-details">
+              <p>Samosa</p>
+              <p>Price: ₹25</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 12g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('3', 'Samosa', 25)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/s5.png" alt="Starter 2" />
+            <div class="item-details">
+              <p>Momos</p>
+              <p>Price: ₹60</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 12g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('4', 'Momos', 60)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/s6.png" alt="Starter 2" />
+            <div class="item-details">
+              <p>Kachori</p>
+              <p>Price: ₹50</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 12g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('5', 'Kachori', 50)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/s3.jpeg" alt="Starter 3" />
+            <div class="item-details">
+              <p>Mushroom Pakora</p>
+              <p>Price: ₹70</p>
+              <p>Protein: 7g</p>
+              <p>Fat: 12g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('6', 'Mushroom Pakora', 70)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drinks Category -->
+      <div class="category">
+        <h2>Drinks</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/d1.png" alt="Drink 1" />
+            <div class="item-details">
+              <p>Dragons Breath</p>
+              <p>Price: ₹90</p>
+              <p>Protein: 2g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 80</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('7', 'Dragons Breath', 90)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/d2.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>Galaxy Lemonade</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 100</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('8', 'Galaxy Lemonade', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/d3.png" alt="Drink 3" />
+            <div class="item-details">
+              <p>Unicorn Smoothie</p>
+              <p>Price: ₹120</p>
+              <p>Protein: 7g</p>
+              <p>Fat: 4g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('9', 'Unicorn Smoothie', 120)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/d4.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>Mojito</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 100</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('10', 'Mojito', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/d5.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>Mexican Martini</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 100</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('11', 'Mexican Martini', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/d6.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>French 75</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 100</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('12', 'French 75', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- South Dish Category -->
+      <div class="category">
+        <h2>South Dish</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/t1.png" alt="South Dish 1" />
+            <div class="item-details">
+              <p>Masala Dosa</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 7g</p>
+              <p>Fat: 8g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('13', 'Masala Dosa', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/t2.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Parota</p>
+              <p>Price: ₹60</p>
+              <p>Protein: 8g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('14', 'Parota', 60)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/t3.png" alt="South Dish 3" />
+            <div class="item-details">
+              <p>Poori</p>
+              <p>Price: ₹40</p>
+              <p>Protein: 3g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 150</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('15', 'Poori', 40)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/t4.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Pongal</p>
+              <p>Price: ₹40</p>
+              <p>Protein: 8g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('16', 'Pongal', 40)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/t5.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Veg Meals</p>
+              <p>Price: ₹90</p>
+              <p>Protein: 8g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('17', 'Veg Meals', 90)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/t6.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Idli</p>
+              <p>Price: ₹30</p>
+              <p>Protein: 8g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('18', 'Idli', 30)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- North indian Category -->
+      <div class="category">
+        <h2>North Indian</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/n1.png" alt="Drink 1" />
+            <div class="item-details">
+              <p>Paratha</p>
+              <p>Price: ₹90</p>
+              <p>Protein: 2g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 80</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('19', 'Paratha', 90)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/n2.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>Veg Thali</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 100</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('20', 'Veg Thali', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/n3.png" alt="Drink 3" />
+            <div class="item-details">
+              <p>Manchuri</p>
+              <p>Price: ₹120</p>
+              <p>Protein: 7g</p>
+              <p>Fat: 4g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('21', 'Manchuri', 120)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/n4.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>Rajma</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 100</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('22', 'Rajma', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/n5.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>Dal Thadka</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 100</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('23', 'Dal Thadka', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/n6.png" alt="Drink 2" />
+            <div class="item-details">
+              <p>Malai Kofta</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 0g</p>
+              <p>Calories: 100</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('24', 'Malai Kofta', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chines Category -->
+      <div class="category">
+        <h2>Chines</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/c1.png" alt="South Dish 1" />
+            <div class="item-details">
+              <p>Kun Pao Chicken</p>
+              <p>Price: ₹180</p>
+              <p>Protein: 24g</p>
+              <p>Fat: 15g</p>
+              <p>Calories: 290</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('25', 'Masala Dosa', 180)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/c2.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Sweet and sour</p>
+              <p>Price: ₹210</p>
+              <p>Protein: 20g</p>
+              <p>Fat: 16g</p>
+              <p>Calories: 350</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('26', 'Sweet and sour', 210)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/c3.png" alt="South Dish 3" />
+            <div class="item-details">
+              <p>Mapo Tofu</p>
+              <p>Price: ₹150</p>
+              <p>Protein: 12g</p>
+              <p>Fat: 14g</p>
+              <p>Calories: 250</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('27', 'Mapo Tofu', 150)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/c4.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Beef with Broccoli</p>
+              <p>Price: ₹260</p>
+              <p>Protein: 22g</p>
+              <p>Fat: 12g</p>
+              <p>Calories: 280</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('28', 'Beef with Broccoli', 260)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/c5.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>General Tso</p>
+              <p>Price: ₹260</p>
+              <p>Protein: 28g</p>
+              <p>Fat: 20g</p>
+              <p>Calories: 400</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('29', 'General Tso', 260)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/c6.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Chow Mein</p>
+              <p>Price: ₹160</p>
+              <p>Protein: 18g</p>
+              <p>Fat: 15g</p>
+              <p>Calories: 350</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('30', 'Chow Mein', 60)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desert Category -->
+      <div class="category">
+        <h2>Desert</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/b1.png" alt="South Dish 1" />
+            <div class="item-details">
+              <p>Chocolate Cake</p>
+              <p>Price: ₹80</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 14g</p>
+              <p>Calories: 300</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('31', 'Chocolate Cake', 80)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/b2.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Cheesecake</p>
+              <p>Price: ₹70</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 22g</p>
+              <p>Calories: 400</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('32', 'Cheesecake', 60)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/b3.png" alt="South Dish 3" />
+            <div class="item-details">
+              <p>Apple pie</p>
+              <p>Price: ₹90</p>
+              <p>Protein: 1g</p>
+              <p>Fat: 15g</p>
+              <p>Calories: 350</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('33', 'Apple pie', 40)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/b4.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Brownie</p>
+              <p>Price: ₹90</p>
+              <p>Protein: 2g</p>
+              <p>Fat: 9g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('34', 'Brownie', 90)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/b5.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Lava cake</p>
+              <p>Price: ₹50</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 15g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('35', 'Lava cake', 50)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/b6.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Tiramisu</p>
+              <p>Price: ₹90</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 15g</p>
+              <p>Calories: 350</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('36', 'Tiramisu', 90)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Japanese Category -->
+      <div class="category">
+        <h2>Japanese Dish</h2>
+        <div class="item-container">
+          <div class="menu-item">
+            <img src="assests/j1.png" alt="South Dish 1" />
+            <div class="item-details">
+              <p>Sushi</p>
+              <p>Price: ₹110</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 0.5g</p>
+              <p>Calories: 40</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('37', 'Sushi', 110)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/j2.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Tempura</p>
+              <p>Price: ₹140</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 3g</p>
+              <p>Calories: 60</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('38', 'Tempura', 140)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/j3.png" alt="South Dish 3" />
+            <div class="item-details">
+              <p>Ramen</p>
+              <p>Price: ₹140</p>
+              <p>Protein: 30g</p>
+              <p>Fat: 15g</p>
+              <p>Calories: 400</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('39', 'Ramen', 140)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/j4.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Teriyaki Chicken</p>
+              <p>Price: ₹260</p>
+              <p>Protein: 20g</p>
+              <p>Fat: 10g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('40', 'Teriyaki Chicken', 260)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/j5.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Onigiri</p>
+              <p>Price: ₹260</p>
+              <p>Protein: 6g</p>
+              <p>Fat: 3g</p>
+              <p>Calories: 200</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('41', 'Onigiri', 260)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="assests/j6.png" alt="South Dish 2" />
+            <div class="item-details">
+              <p>Miso Soup</p>
+              <p>Price: ₹160</p>
+              <p>Protein: 4g</p>
+              <p>Fat: 2g</p>
+              <p>Calories: 30</p>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('42', 'Miso Soup', 60)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="order-btn" onclick="viewOrder()">Order</button>
+    <button class="back-btn" onclick="showMenuOptions()">Back</button>
+
+    <div id="rotate-alert">
+      <div id="rotate-alert-content">
+        <img src="assets/rotate.png" alt="Rotate Icon" />
+        <p>Please rotate your mobile</p>
+      </div>
+    </div>
+    <div id="cart-items"></div>
+    <script>
+      function showMenuOptions() {
+        document.body.style.backgroundImage = "url('assests/bg2.jpeg')"; // Set background image
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.margin = "0";
+        document.body.style.height = "100vh";
+        const menuOptions = `
+                       <div style="text-align: center; padding-top: 20%;">
+                <div>
+                    <button
+                        id="needHelpButton"
+                        style="width: 15%; background-color: black; position: fixed; left: 150px; padding: 10px; font-size: 20px; border-radius: 20px; color: white; border: none; cursor: pointer;letter-spacing: 1px;"
+                        onclick="handleNeedHelpTouch()"
+                    >
+                        Confused!
+                    </button>
+                    <p id="helpMessage" style="font-size: 18px; color: white;position: fixed; left: 45px; bottom: 250px;  margin-top: 10px;"></p>
+                </div>
+                <div>
+                    <button
+                       style="width: 15%; background-color: black; position: fixed; bottom: 220px;left: 150px;  padding: 10px; font-size: 20px; border-radius: 20px; color: white; border: none; cursor: pointer;"
+                        onclick="handleTouch()"
+                    >
+                        Choose Menu
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.innerHTML = menuOptions;
+      }
+
+      let helpTouchCount = 0;
+
+      // Handle the 'Confused' button click
+      function handleNeedHelpTouch() {
+        const helpMessage = document.getElementById("helpMessage");
+        if (helpTouchCount === 0) {
+          helpMessage.textContent =
+            "If you are  feeling difficulty in choosing the menu, I can help you!";
+          helpTouchCount++;
+        } else {
+          location.href = "needhelp.html";
+        }
+      }
+
+      // Handle the 'Choose Menu' button click
+      function handleTouch() {
+        const helpMessage = document.getElementById("helpMessage");
+        if (helpTouchCount === 1) {
+          helpMessage.textContent =
+            "Are you ready to taste our delicious food...!!";
+          helpTouchCount++;
+        } else {
+          location.href = "menu.html";
+        }
+      }
+      // Initialize an empty cart
+      let cart = [];
+
+      // Function to add items to the cart
+      function addToCart(id, item_name, price) {
+        // Check if item already exists in cart, if so, increase quantity
+        const existingItem = cart.find((item) => item.id === id);
+        if (existingItem) {
+          existingItem.quantity += 1; // Increase quantity
+        } else {
+          cart.push({ id, item_name, price, quantity: 1 }); // Add new item to cart
+        }
+
+        // Update the cart display
+        displayCartItems();
+      }
+
+      // Function to display cart items
+      function displayCartItems() {
+        const cartItemsContainer = document.getElementById("cart-items");
+        cartItemsContainer.innerHTML = ""; // Clear the container
+
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = "<p>Your cart is empty</p>";
+          return;
+        }
+
+        // Display each item in the cart
+        cart.forEach((item) => {
+          const itemElement = document.createElement("div");
+          itemElement.classList.add("cart-item");
+          itemElement.innerHTML = `
+                  <h3>${item.item_name}</h3>
+                  <p>Price: ₹${item.price}</p>
+                  <p>Quantity: ${item.quantity}</p>
+                  <button onclick="removeFromCart('${item.id}')">Remove</button>
+                `;
+          cartItemsContainer.appendChild(itemElement);
+        });
+      }
+
+      // Function to remove item from the cart
+      function removeFromCart(id) {
+        cart = cart.filter((item) => item.id !== id);
+        displayCartItems(); // Update the display after removal
+      }
+
+      // Function to view the order
+      function viewOrder() {
+        if (cart.length === 0) {
+          alert("No items in the cart!");
+          return;
+        }
+        let orderDetails = "Your Order:\n";
+        let totalPrice = 0;
+        cart.forEach((order, index) => {
+          orderDetails += `${index + 1}. ${order.item_name} - ₹${
+            order.price
+          }\n`;
+          totalPrice += order.price * order.quantity;
+        });
+        orderDetails += `\nTotal Price: ₹${totalPrice}`;
+        alert(orderDetails);
+      }
+    </script>
+  </body>
+</html>

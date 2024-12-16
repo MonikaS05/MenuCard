@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="assests/leo.jpg" type="image/x-icon" />
+    <style>
+      /* Ensure the menu options container is initially hidden */
+      #menu-options-container {
+        display: none; /* Hidden initially */
+        text-align: center;
+        padding-top: 20%;
+      }
+
+      #menu-options-container button {
+        margin: 10px;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Greeting Section -->
+    <div class="greeting-page">
+      <h1>Welcome to Amma's Restaurant! 🍽️✨</h1>
+      <p>Your adventure with delicious food starts here!</p>
+      <button class="view-menu-btn" onclick="showMenuOptions()">
+        View Menu
+      </button>
+    </div>
+
+    <!-- Rotate alert pop-up -->
+    <div id="rotate-alert">
+      <div id="rotate-alert-content">
+        <img src="assests/rotate.png" alt="Rotate Icon" />
+        <p>Please rotate your mobile</p>
+      </div>
+    </div>
+
+    <!-- Audio file for the "please rotate your mobile" message -->
+    <audio id="rotate-audio" src="rotate-message.mp3" preload="auto"></audio>
+
+    <!-- Container for menu options -->
+    <div id="menu-options-container"></div>
+
+    <!-- Scripts -->
+    <script>
+      let audio = document.getElementById("rotate-audio");
+
+      // Function to play the audio message
+      function playAudioMessage() {
+        audio
+          .play()
+          .catch((error) =>
+            console.log("Audio playback blocked until user interacts")
+          );
+      }
+
+      // Listen for the first touch or click
+      function enableAudioOnInteraction() {
+        document.addEventListener("click", playOnFirstTouch);
+        document.addEventListener("touchstart", playOnFirstTouch);
+      }
+
+      function playOnFirstTouch() {
+        playAudioMessage();
+        // Remove the event listeners after audio starts
+        document.removeEventListener("click", playOnFirstTouch);
+        document.removeEventListener("touchstart", playOnFirstTouch);
+      }
+
+      window.addEventListener("load", enableAudioOnInteraction);
+
+      function showMenuOptions() {
+        document.body.style.backgroundImage = "url('assests/bg2.jpeg')"; // Set background image
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.margin = "0";
+        document.body.style.height = "100vh";
+        const menuOptions = `
+                       <div style="text-align: center; padding-top: 20%;">
+                <div>
+                    <button
+                        id="needHelpButton"
+                        style="width: 15%; background-color: black; position: fixed; left: 150px; padding: 10px; font-size: 20px; border-radius: 20px; color: white; border: none; cursor: pointer;letter-spacing: 1px;"
+                        onclick="handleNeedHelpTouch()"
+                    >
+                        Confused!
+                    </button>
+                    <p id="helpMessage" style="font-size: 18px; color: white;position: fixed; left: 45px; bottom: 250px;  margin-top: 10px;"></p>
+                </div>
+                <div>
+                    <button
+                       style="width: 15%; background-color: black; position: fixed; bottom: 220px;left: 150px;  padding: 10px; font-size: 20px; border-radius: 20px; color: white; border: none; cursor: pointer;"
+                        onclick="handleTouch()"
+                    >
+                        Choose Menu
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.innerHTML = menuOptions;
+      }
+
+      let helpTouchCount = 0;
+
+      // Handle the 'Confused' button click
+      function handleNeedHelpTouch() {
+        const helpMessage = document.getElementById("helpMessage");
+        if (helpTouchCount === 0) {
+          helpMessage.textContent =
+            "If you are  feeling difficulty in choosing the menu, I can help you!";
+          helpTouchCount++;
+        } else {
+          location.href = "needhelp.html";
+        }
+      }
+
+      // Handle the 'Choose Menu' button click
+      function handleTouch() {
+        const helpMessage = document.getElementById("helpMessage");
+        if (helpTouchCount === 1) {
+          helpMessage.textContent =
+            "Are you ready to taste our delicious food...!!";
+          helpTouchCount++;
+        } else {
+          location.href = "menu.html";
+        }
+      }
+      // Screen orientation check
+      function checkOrientation() {
+        const alertBox = document.getElementById("rotate-alert");
+        if (window.innerHeight > window.innerWidth) {
+          alertBox.style.display = "block";
+          playAudioMessage();
+        } else {
+          alertBox.style.display = "none";
+        }
+      }
+
+      window.addEventListener("resize", checkOrientation);
+      window.addEventListener("load", checkOrientation);
+    </script>
+  </body>
+</html>
